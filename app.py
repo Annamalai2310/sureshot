@@ -247,6 +247,7 @@ from tensorflow.keras.losses import MeanSquaredError
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here' 
+app.run(host="0.0.0.0", port=5000, debug=True)
  # Secret key for session management
 
 # Create the 'static' folder if it doesn't exist
