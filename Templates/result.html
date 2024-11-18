@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sureshot</title>
+    <link href="static/css/tailwind-output.css" rel="stylesheet">
+
+    <style>
+        .arrow-up {
+            color: green;
+        }
+        .arrow-down {
+            color: red;
+        }
+        .arrow-neutral {
+            color: gray;
+        }
+    </style>
+</head>
+<body class="bg-yellow-50 p-8">
+    <div class="max-w-4xl mx-auto bg-yellow-50 p-2">
+        <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">Sureshot for {{ company_name }}</h2>
+
+        <div class="space-y-2 justify-center flex flex-row gap-6">
+            <p class="text-lg text-blue-900">
+                <span class="font-semibold">Recent Sales:</span> 
+                {% if prediction['Sales'] is not none %}
+                    {{ prediction['Sales'] | round(2) }} crores
+                {% else %}
+                    N/A
+                {% endif %}
+            </p>
+
+            <p class="text-lg text-blue-900">
+                <span class="font-semibold">Profit Trend:</span> 
+                {% if arrow_directions['Profit'] == 'up' %}
+                    <span class="arrow-up">&#9650;</span>
+                {% elif arrow_directions['Profit'] == 'down' %}
+                    <span class="arrow-down">&#9660;</span>
+                {% else %}
+                    <span class="arrow-neutral">&#8596;</span>
+                {% endif %}
+            </p>
+
+            <p class="text-lg text-blue-900">
+                <span class="font-semibold">Average Price Trend:</span> 
+                {% if arrow_directions['Avg_Price'] == 'up' %}
+                    <span class="arrow-up">&#9650;</span>
+                {% elif arrow_directions['Avg_Price'] == 'down' %}
+                    <span class="arrow-down">&#9660;</span>
+                {% else %}
+                    <span class="arrow-neutral">&#8596;</span>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="mt-8 flex justify-center">
+            <img src="{{ graph_path }}" alt="Prediction Graph" class="rounded-lg max-w-full h-auto">
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="/" class="text-blue-400 hover:text-blue-500 font-semibold">Go back</a>
+        </div>
+    </div>
+</body>
+</html>

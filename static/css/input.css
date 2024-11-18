@@ -1,0 +1,9 @@
+/* static/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.custom-class {
+    @apply text-blue-900 bg-yellow-50 p-4 rounded-lg;
+}

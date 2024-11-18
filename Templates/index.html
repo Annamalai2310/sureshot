@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+    <form action="/predict" method="POST">
+        <label for="company">Choose a company:</label>
+        <select name="company" id="company">
+            {% for company in companies %}
+                <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Selection</title>
+    <link href="static/css/tailwind-output.css" rel="stylesheet">
+</head>
+<body class="bg-yellow-50 p-8 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+        <h2 class="text-center text-3xl font-semibold text-blue-900 mb-6">Select a Company</h2>
+        <form action="/predict" method="POST" class="space-y-6">
+            <div>
+                <label for="company" class="block text-lg font-medium text-blue-900 mb-2">Search for a company:</label>
+                <input 
+                    type="text" 
+                    name="company" 
+                    id="company" 
+                    list="company-list" 
+                    placeholder="Type to search..." 
+                    class="w-full p-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-blue-900"
+                >
+                <datalist id="company-list">
+                    {% for company in companies %}
+                        <option value="{{ company }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <button type="submit" class="w-full py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-900 transition duration-300">
+                Predict
+            </button>
+        </form>
+    </div>
+</body>
+</html>

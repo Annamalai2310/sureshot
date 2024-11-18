@@ -1,0 +1,229 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="static/css/tailwind-output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+        <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">Payment Options</h2>
+
+        <form class="space-y-8"> -->
+            <!-- Payment Amount -->
+            <!-- <div class="mb-4">
+                <label class="text-lg text-blue-900 font-semibold">Amount to Pay:</label>
+                <input type="text" placeholder="Enter Amount" 
+                       class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div> -->
+
+            <!-- Payment Method Options -->
+            <!-- <h3 class="text-xl font-semibold text-blue-900">Select Payment Method</h3> -->
+
+            <!-- Credit/Debit Card -->
+            <!-- <div class="p-4 border border-gray-300 rounded-lg">
+                <input type="radio" id="creditCard" name="paymentMethod" class="mr-2">
+                <label for="creditCard" class="font-semibold text-blue-900">Credit/Debit Card</label>
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="Card Number" class="col-span-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" placeholder="MM/YY" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" placeholder="CVV" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <input type="text" placeholder="Cardholder Name" class="col-span-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+            </div> -->
+
+            <!-- UPI -->
+            <!-- <div class="p-4 border border-gray-300 rounded-lg">
+                <input type="radio" id="upi" name="paymentMethod" class="mr-2">
+                <label for="upi" class="font-semibold text-blue-900">UPI</label>
+                <input type="text" placeholder="Enter UPI ID" 
+                       class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div> -->
+
+            <!-- Net Banking -->
+            <!-- <div class="p-4 border border-gray-300 rounded-lg">
+                <input type="radio" id="netBanking" name="paymentMethod" class="mr-2">
+                <label for="netBanking" class="font-semibold text-blue-900">Net Banking</label>
+                <select class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option>Select Your Bank</option>
+                    <option>Bank A</option>
+                    <option>Bank B</option>
+                    <option>Bank C</option>
+                    <option>Bank D</option>
+                </select>
+            </div> -->
+
+            <!-- Wallets -->
+            <!-- <div class="p-4 border border-gray-300 rounded-lg">
+                <input type="radio" id="wallet" name="paymentMethod" class="mr-2">
+                <label for="wallet" class="font-semibold text-blue-900">Wallet</label>
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <button type="button" class="w-full py-2 bg-blue-400 text-white font-semibold rounded-lg transition duration-300 hover:bg-blue-500">Paytm</button>
+                    <button type="button" class="w-full py-2 bg-blue-400 text-white font-semibold rounded-lg transition duration-300 hover:bg-blue-500">Google Pay</button>
+                    <button type="button" class="w-full py-2 bg-blue-400 text-white font-semibold rounded-lg transition duration-300 hover:bg-blue-500">PhonePe</button>
+                    <button type="button" class="w-full py-2 bg-blue-400 text-white font-semibold rounded-lg transition duration-300 hover:bg-blue-500">Amazon Pay</button>
+                </div>
+            </div> -->
+
+            <!-- Pay Now Button -->
+            <!-- <button type="submit" 
+                    class="w-full py-3 bg-blue-900 text-white font-semibold rounded-lg transition duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Pay Now
+            </button>
+        </form>
+    </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            background-color: #fdffe2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            color: #1F3C88;
+            background-color: #fdffe2;
+            max-width: 64rem;
+        }
+        .title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1F3C88;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .input-field, .select-field {
+            width: 75%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .input-field:focus, .select-field:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.4);
+        }
+        .payment-method {
+            padding: 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .payment-method-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1F3C88;
+        }
+        .wallet-button {
+            padding: 0.5rem;
+            background-color: #4299e1;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        .wallet-button:hover {
+            background-color: #2b6cb0;
+        }
+        .pay-now-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color:#1F3C88;;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+            border: none;
+            margin-top: 1rem;
+        }
+        .pay-now-button:hover {
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title">Payment Options</h2>
+
+        <form>
+            <!-- Payment Amount -->
+            <!-- <div>
+                <label class="payment-method-label">Amount to Pay:</label>
+                <input type="text" placeholder="Enter Amount" class="input-field">
+            </div> -->
+
+            <!-- Payment Method Options -->
+            <h3 class="payment-method-label" style="margin-top: 1rem;">Select Payment Method</h3>
+
+            <!-- Credit/Debit Card -->
+            <div class="payment-method">
+                <label id="creditCard" name="paymentMethod" style="margin-right: 0.5rem;">
+                <label for="creditCard" class="payment-method-label">Credit/Debit Card</label>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <input type="text" placeholder="Card Number" class="input-field">
+                    <input type="text" placeholder="MM/YY" class="input-field">
+                    <input type="text" placeholder="CVV" class="input-field">
+                    <input type="text" placeholder="Cardholder Name" class="input-field">
+                </div>
+            </div>
+
+            <!-- UPI -->
+            <div class="payment-method">
+                <label id="upi" name="paymentMethod" style="margin-right: 0.5rem;">
+                <label for="upi" class="payment-method-label">UPI</label>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <button type="button" class="wallet-button">Paytm</button>
+                    <button type="button" class="wallet-button">Google Pay</button>
+                    <button type="button" class="wallet-button">PhonePe</button>
+                    <button type="button" class="wallet-button">Amazon Pay</button>
+                </div>
+            </div>
+
+            <!-- Net Banking -->
+            <div class="payment-method">
+                <label id="netBanking" name="paymentMethod" style="margin-right: 0.5rem;">
+                <label for="netBanking" class="payment-method-label">Net Banking</label>
+                <select class="select-field">
+                    <option>Select Your Bank</option>
+                    <option>Axis Bank</option>
+                    <option>Bank of Baroda</option>
+                    <option>ICICI Bank</option>
+                    <option>HDFC Bank</option>
+                    <option>State Bank of India</option>
+                </select>
+            </div>
+
+            <!-- Wallets -->
+            <!-- <div class="payment-method">
+                <input type="radio" id="wallet" name="paymentMethod" style="margin-right: 0.5rem;">
+                <label for="wallet" class="payment-method-label">Wallet</label>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <button type="button" class="wallet-button">Paytm</button>
+                    <button type="button" class="wallet-button">Google Pay</button>
+                    <button type="button" class="wallet-button">PhonePe</button>
+                    <button type="button" class="wallet-button">Amazon Pay</button>
+                </div>
+            </div> -->
+
+            <!-- Pay Now Button -->
+            <button type="submit" class="pay-now-button">Pay Now</button>
+        </form>
+    </div>
+
+</body>
+</html>
