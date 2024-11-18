@@ -332,6 +332,8 @@ def predict():
     plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-3], None, color='r', label='Predicted Sales')  # Masked
     plt.title('Sales Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Sales')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
@@ -343,6 +345,8 @@ def predict():
     plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Profit')  # Masked
     plt.title('Profit Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Profit')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
@@ -354,6 +358,8 @@ def predict():
     plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Average Price')  # Masked
     plt.title('Average Price Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Average Price')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
@@ -458,6 +464,9 @@ def unmask_predictions():
     plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-1], None, color='r', label='Predicted Sales')  # Masked
     plt.title('Sales Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Sales')
+    plt.legend()
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
@@ -468,6 +477,9 @@ def unmask_predictions():
     plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Profit')  # Masked
     plt.title('Profit Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Profit')
+    plt.legend()
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
@@ -478,6 +490,9 @@ def unmask_predictions():
     plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Average Price')  # Masked
     plt.title('Average Price Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Average Price')
+    plt.legend()
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(bymonth=[3, 6, 9, 12]))
     plt.xticks(rotation=45)
