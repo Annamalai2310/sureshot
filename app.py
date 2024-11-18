@@ -246,7 +246,8 @@ import matplotlib.dates as mdates
 from tensorflow.keras.losses import MeanSquaredError
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Secret key for session management
+app.secret_key = 'your_secret_key_here' 
+ # Secret key for session management
 
 # Create the 'static' folder if it doesn't exist
 static_folder = os.path.join(os.getcwd(), 'static')
@@ -474,8 +475,7 @@ def unmask_predictions():
     # Plot Profit
     plt.subplot(3, 1, 2)
     plt.plot(data.index, data['Profit(in crores)'], marker='o', label='Profit', color='g')
-    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
-    plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Profit')  # Masked
+    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')  # Masked
     plt.title('Profit Over Time')
     plt.xlabel('Date')
     plt.ylabel('Profit')
@@ -487,8 +487,7 @@ def unmask_predictions():
     # Plot Average Price
     plt.subplot(3, 1, 3)
     plt.plot(data.index, data['Avg. Price'], marker='o', label='Average Price', color='purple')
-    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
-    plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Average Price')  # Masked
+    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point') # Masked
     plt.title('Average Price Over Time')
     plt.xlabel('Date')
     plt.ylabel('Average Price')
