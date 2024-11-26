@@ -246,6 +246,7 @@ import matplotlib.dates as mdates
 from tensorflow.keras.losses import MeanSquaredError
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key_here' 
  # Secret key for session management
 
 # Create the 'static' folder if it doesn't exist
