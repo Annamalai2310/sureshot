@@ -21,30 +21,34 @@
     <title>Company Selection</title>
     <link href="static/css/tailwind-output.css" rel="stylesheet">
 </head>
-<body class="bg-yellow-50 p-8 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
-        <h2 class="text-center text-3xl font-semibold text-blue-900 mb-6">Select a Company</h2>
-        <form action="/predict" method="POST" class="space-y-6">
-            <div>
-                <label for="company" class="block text-lg font-medium text-blue-900 mb-2">Search for a company:</label>
-                <input 
-                    type="text" 
-                    name="company" 
-                    id="company" 
-                    list="company-list" 
-                    placeholder="Type to search..." 
-                    class="w-full p-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-blue-900"
-                >
-                <datalist id="company-list">
-                    {% for company in companies %}
-                        <option value="{{ company }}"></option>
-                    {% endfor %}
-                </datalist>
-            </div>
-            <button type="submit" class="w-full py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-900 transition duration-300">
-                Enter
-            </button>
-        </form>
+<body class="bg-yellow-50 p-8 flex flex-col items-center justify-center min-h-screen">
+    <div  class="p-8 max-w-lg w-full">
+        <h1 class="text-center text-5xl font-bold text-blue-900 mb-6">Sureshot</h1>
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+            <h2 class="text-center text-2xl font-semibold text-blue-900 mb-6">Select a Company</h2>
+            <form action="/predict" method="POST" class="space-y-6">
+                <div>
+                    <label for="company" class="block text-lg font-medium text-blue-900 mb-2">Search for a company:</label>
+                    <input 
+                        type="text" 
+                        name="company" 
+                        id="company" 
+                        list="company-list" 
+                        placeholder="Type here to search..." 
+                        autocomplete="off" 
+                        class="w-full p-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-blue-900"
+                    >
+                    <datalist id="company-list">
+                        {% for company in companies %}
+                            <option value="{{ company }}"></option>
+                        {% endfor %}
+                    </datalist>
+                </div>
+                <button type="submit" class="w-full py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-900 transition duration-300">
+                    Enter
+                </button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -331,9 +331,9 @@ def predict():
 
     plt.subplot(3, 1, 1)
     plt.plot(data.index, data['Sales(in crores)'], marker='o', label='Sales', color='b')
-    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
+    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Recent Value')
     plt.scatter(data.index[-3], None, color='r', label='Predicted Sales')  # Masked
-    plt.title('Sales Over Time')
+    plt.title('Sales Chart')
     plt.xlabel('Date')
     plt.ylabel('Sales')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
@@ -344,9 +344,9 @@ def predict():
      # Plot profit (masked prediction)
     plt.subplot(3, 1, 2)
     plt.plot(data.index, data['Profit(in crores)'], marker='o', label='Profit', color='g')
-    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
+    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Recent Value')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Profit')  # Masked
-    plt.title('Profit Over Time')
+    plt.title('Profit Chart')
     plt.xlabel('Date')
     plt.ylabel('Profit')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
@@ -357,9 +357,9 @@ def predict():
     # Plot average price (masked prediction)
     plt.subplot(3, 1, 3)
     plt.plot(data.index, data['Avg. Price'], marker='o', label='Average Price', color='purple')
-    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Prediction Point')
+    plt.axvline(x=data.index[-1], color='gray', linestyle='--', label='Recent Value')
     plt.scatter(data.index[-1], None, marker='o', color='r', label='Predicted Average Price')  # Masked
-    plt.title('Average Price Over Time')
+    plt.title('Price Chart')
     plt.xlabel('Date')
     plt.ylabel('Average Price')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b-%Y'))
@@ -462,10 +462,18 @@ def unmask_predictions():
 
     # Plot Sales
     plt.subplot(3, 1, 1)
-    plt.plot(data.index, data['Sales(in crores)'], marker='o', label='Sales', color='b')
-    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')
-    plt.scatter(data.index[-1], None, color='r', label='Predicted Sales')  # Masked
-    plt.title('Sales Over Time')
+    plt.plot(data.index[:-1], data['Sales(in crores)'][:-1], marker='o', label='Sales', color='b')
+
+    # Plot the second-to-last to last segment in red
+    plt.plot(data.index[-2:], data['Sales(in crores)'].iloc[-2:], color='r', marker='o', label='Predicted Sales')
+    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Recent Value')
+    point_x = data.index[-2]
+    point_y = data['Sales(in crores)'].iloc[-2]  # Value for the last data point
+    plt.scatter(point_x, point_y, color='b', s=50, zorder=2)
+    last_point_x = data.index[-1]
+    last_point_y = data['Sales(in crores)'].iloc[-1]  # Value for the last data point
+    plt.scatter(last_point_x, last_point_y, color='r', s=50, zorder=2)  # Masked
+    plt.title('Sales Chart')
     plt.xlabel('Date')
     plt.ylabel('Sales')
     plt.legend()
@@ -476,8 +484,8 @@ def unmask_predictions():
     # Plot Profit
     plt.subplot(3, 1, 2)
     plt.plot(data.index, data['Profit(in crores)'], marker='o', label='Profit', color='g')
-    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point')  # Masked
-    plt.title('Profit Over Time')
+    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Recent Value')  # Masked
+    plt.title('Profit Chart')
     plt.xlabel('Date')
     plt.ylabel('Profit')
     plt.legend()
@@ -488,8 +496,8 @@ def unmask_predictions():
     # Plot Average Price
     plt.subplot(3, 1, 3)
     plt.plot(data.index, data['Avg. Price'], marker='o', label='Average Price', color='purple')
-    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Prediction Point') # Masked
-    plt.title('Average Price Over Time')
+    plt.axvline(x=data.index[-2], color='gray', linestyle='--', label='Recent Value') # Masked
+    plt.title('Price Chart')
     plt.xlabel('Date')
     plt.ylabel('Average Price')
     plt.legend()

@@ -9,22 +9,26 @@
     <style>
         .arrow-up {
             color: green;
+            font-size: 1.75rem;
         }
         .arrow-down {
             color: red;
+            font-size: 1.75rem;
         }
         .arrow-neutral {
             color: gray;
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body class="bg-yellow-50 p-8">
     <div class="max-w-4xl mx-auto bg-yellow-50 p-2">
-        <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">Sureshot for {{ company_name }}</h2>
+        <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">Sureshot</h2>
+        <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">{{ company_name }}</h2>
 
-        <div class="space-y-2 justify-center flex flex-row gap-6">
+        <div class="space-y-2 justify-center items-center leading-4 flex flex-row gap-6">
             <p class="text-lg text-blue-900">
-                <span class="font-semibold">Recent Sales:</span> 
+                <span class="font-semibold">Predicted Sales:</span> 
                 {% if prediction['Sales'] is not none %}
                     {{ prediction['Sales'] | round(2) }} crores
                 {% else %}
@@ -54,14 +58,13 @@
                 {% endif %}
             </p>
         </div>
+    </div>
+    <div class="mt-8 flex justify-center">
+        <img src="{{ graph_path }}" alt="Prediction Graph" class="rounded-lg max-w-full">
+    </div>
 
-        <div class="mt-8 flex justify-center">
-            <img src="{{ graph_path }}" alt="Prediction Graph" class="rounded-lg max-w-full h-auto">
-        </div>
-
-        <div class="mt-8 text-center">
-            <a href="/" class="text-blue-400 hover:text-blue-500 font-semibold">Go back</a>
-        </div>
+    <div class="mt-8 text-center">
+        <a href="/" class="text-blue-400 hover:text-blue-500 font-semibold">Go back</a>
     </div>
 </body>
 </html>
